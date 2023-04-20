@@ -4,12 +4,11 @@
   "version": "1.0",
   "description": "Improves the behavior of Chrome's History tab",
   "permissions": ["tabs", "history"],
-  "content_scripts": [
-    {
-      "matches": ["chrome://history/*"],
-      "js": ["content.js"],
-      "css": ["style.css"],
-      "run_at": "document_end"
-    }
-  ]
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "icon.png"
+  }
 }
