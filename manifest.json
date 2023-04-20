@@ -1,0 +1,15 @@
+{
+  "manifest_version": 2,
+  "name": "Custom History Enhancements",
+  "version": "1.0",
+  "description": "Improves the behavior of Chrome's History tab",
+  "permissions": ["tabs", "history"],
+  "content_scripts": [
+    {
+      "matches": ["chrome://history/*"],
+      "js": ["content.js"],
+      "css": ["style.css"],
+      "run_at": "document_end"
+    }
+  ]
+}
