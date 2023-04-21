@@ -33,6 +33,13 @@ function filterHistoryEntriesByDate(selectedDate) {
       visitedTimeElement.textContent = `${timeString} - `;
       entryElement.appendChild(visitedTimeElement);
 
+      // Create an img element for the favicon
+      const faviconElement = document.createElement('img');
+      faviconElement.src = `https://s2.googleusercontent.com/s2/favicons?domain=${entry.url}`;
+      faviconElement.alt = '';
+      faviconElement.classList.add('favicon');
+      entryElement.appendChild(faviconElement);
+
       const entryTitle = document.createElement('a');
       entryTitle.href = entry.url;
       entryTitle.target = '_blank';
