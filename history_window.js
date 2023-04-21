@@ -24,6 +24,15 @@ function filterHistoryEntriesByDate(selectedDate) {
       const entryElement = document.createElement('div');
       entryElement.classList.add('entry');
 
+      // Format the visited time
+      const visitedTime = new Date(entry.lastVisitTime);
+      const timeString = visitedTime.toLocaleTimeString();
+
+      // Create a span element to display the visited time
+      const visitedTimeElement = document.createElement('span');
+      visitedTimeElement.textContent = `${timeString} - `;
+      entryElement.appendChild(visitedTimeElement);
+
       const entryTitle = document.createElement('a');
       entryTitle.href = entry.url;
       entryTitle.target = '_blank';
