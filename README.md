@@ -5,12 +5,17 @@ This Chrome extension improves the browsing history experience in Google Chrome 
 
 ## Table of Contents
 
+- [Privacy](#privacy)
 - [Features](#features)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [Issues](#issues)
 - [Acknowledgments](#acknowledgments)
+
+
+## Privacy
+We value your privacy and take security seriously. Custom History Enhancements is designed to operate solely on your local data. The extension reads your browsing history information stored on your computer without communicating any data to outside parties. Rest assured that your browsing history remains private, as no information is shared or transmitted by this extension.
 
 ## Features
 
