@@ -1,4 +1,4 @@
-# Custom History Enhancements Chrome Extension
+# ![icon.png](icon.png)Custom History Enhancements Chrome Extension
 
 This Chrome extension improves the browsing history experience in Google Chrome by providing additional functionality such as preventing automatic scrolling when new entries are added, and allowing users to quickly jump to a specific date in their browsing history. The extension also displays the access time, favicon, and title of each visited page in a user-friendly format.
 
