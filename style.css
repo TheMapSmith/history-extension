@@ -27,3 +27,11 @@ h1 {
   display: block;
   margin: 10px;
 }
+
+.entry a {
+  display: inline-block;
+  max-width: 90%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
