@@ -28,9 +28,11 @@ We value your privacy and take security seriously. Custom History Enhancements i
 To install the Custom History Enhancements Chrome extension, follow these steps:
 
 1. Download or clone this repository to your local machine.
-2. Open Google Chrome, navigate to \`chrome://extensions/\`.
+2. Open Google Chrome, navigate to `chrome://extensions/`.
 3. Enable "Developer mode" in the top right corner.
+![Dev mode](readme-imgs/dev-mode.png)
 4. Click on "Load unpacked" and select the folder containing the downloaded repository.
+![load unpacked](readme-imgs/load-unpacked.png)
 
 The extension should now be installed and ready to use in your Chrome browser.
 
