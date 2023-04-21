@@ -1,9 +1,14 @@
 const datePicker = document.getElementById('custom-date-picker');
 const historyList = document.getElementById('custom-history-list');
+const closeButton = document.getElementById('close-button');
 
 datePicker.addEventListener('change', (event) => {
   const selectedDate = event.target.value;
   filterHistoryEntriesByDate(selectedDate);
+});
+
+closeButton.addEventListener('click', () => {
+  window.close();
 });
 
 function filterHistoryEntriesByDate(selectedDate) {
