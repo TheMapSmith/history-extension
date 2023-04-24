@@ -20,13 +20,16 @@ function filterHistoryEntriesByDate(selectedDate) {
   }, (results) => {
     historyList.innerHTML = '';
 
+    // Sort the history items by lastVisitTime (in descending order)
+    results.sort((a, b) => b.lastVisitTime - a.lastVisitTime);
+
     for (const entry of results) {
       const entryElement = document.createElement('div');
       entryElement.classList.add('entry');
 
       // Format the visited time
       const visitedTime = new Date(entry.lastVisitTime);
-      const timeString = visitedTime.toLocaleTimeString();
+      const timeString = visitedTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
       // Create a span element to display the visited time
       const visitedTimeElement = document.createElement('span');
