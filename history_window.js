@@ -13,15 +13,14 @@ closeButton.addEventListener('click', () => {
 
 function filterHistoryEntriesByDate(selectedDate) {
   const selectedDateObj = new Date(selectedDate);
-  const timezoneOffset = selectedDateObj.getTimezoneOffset() * 60000;
-  const startTime = selectedDateObj.getTime() - timezoneOffset;
-  const endTime = startTime + 86400000;
+  const startTime = selectedDateObj.setHours(0, 0, 0, 0);
+  const endTime = selectedDateObj.setHours(23, 59, 59, 999);
 
   chrome.history.search({
     text: '',
     startTime: startTime,
     endTime: endTime,
-    maxResults: 1000
+    maxResults: 10000
   }, (results) => {
     historyList.innerHTML = '';
 
@@ -79,3 +78,4 @@ function filterHistoryEntriesByDate(selectedDate) {
     });
   });
 }
+
