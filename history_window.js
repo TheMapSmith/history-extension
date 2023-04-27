@@ -12,10 +12,15 @@ closeButton.addEventListener('click', () => {
 });
 
 function filterHistoryEntriesByDate(selectedDate) {
+  const selectedDateObj = new Date(selectedDate);
+  const timezoneOffset = selectedDateObj.getTimezoneOffset() * 60000;
+  const startTime = selectedDateObj.getTime() - timezoneOffset;
+  const endTime = startTime + 86400000;
+
   chrome.history.search({
     text: '',
-    startTime: new Date(selectedDate).getTime(),
-    endTime: new Date(selectedDate).getTime() + 86400000,
+    startTime: startTime,
+    endTime: endTime,
     maxResults: 1000
   }, (results) => {
     historyList.innerHTML = '';
@@ -26,8 +31,7 @@ function filterHistoryEntriesByDate(selectedDate) {
       return new Promise((resolve) => {
         chrome.history.getVisits({ url: entry.url }, (visits) => {
           visits.forEach((visit) => {
-            if (visit.visitTime >= new Date(selectedDate).getTime() &&
-              visit.visitTime <= new Date(selectedDate).getTime() + 86400000) {
+            if (visit.visitTime >= startTime && visit.visitTime <= endTime) {
               const newEntry = Object.assign({}, entry);
               newEntry.visitTime = visit.visitTime;
               processedResults.push(newEntry);
