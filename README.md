@@ -11,8 +11,8 @@ This Chrome extension improves the browsing history experience in Google Chrome 
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [Issues](#issues)
+- [Changelog](#changelog)
 - [Acknowledgments](#acknowledgments)
-
 
 ## Privacy
 We value your privacy and take security seriously. Custom History Enhancements is designed to operate solely on your local data. The extension reads your browsing history information stored on your computer without communicating any data to outside parties. Rest assured that your browsing history remains private, as no information is shared or transmitted by this extension.
@@ -22,6 +22,8 @@ We value your privacy and take security seriously. Custom History Enhancements i
 - Prevent automatic scrolling when new entries are added to the history
 - Jump to a specific date in browsing history
 - Display access time, favicon, and title of each visited page
+- Filter and display history entries in a sorted and non-duplicated manner
+- Show the earliest and latest access time for the selected date
 
 ## Installation
 
@@ -45,9 +47,9 @@ Click on the extension icon in the toolbar to open the custom history window. Us
 Contributions to this project are welcome! If you're interested in improving the Custom History Enhancements Chrome extension, please follow these steps:
 
 1. Fork the repository.
-2. Create a new branch for your feature or bugfix (\`git checkout -b feature/my-feature\` or \`git checkout -b fix/my-fix\`).
-3. Make your changes and commit them (\`git commit -m 'Add my feature'\`).
-4. Push your branch to your fork (\`git push origin feature/my-feature\`).
+2. Create a new branch for your feature or bugfix (`git checkout -b feature/my-feature` or `git checkout -b fix/my-fix`).
+3. Make your changes and commit them (`git commit -m 'Add my feature'`).
+4. Push your branch to your fork (`git push origin feature/my-feature`).
 5. Create a pull request from your fork to the main repository.
 
 Please ensure your code follows the existing style conventions and is well-documented.
@@ -55,6 +57,13 @@ Please ensure your code follows the existing style conventions and is well-docum
 ## Issues
 
 If you encounter any bugs or have feature requests, please submit an issue through the GitHub issue tracker. Your feedback is greatly appreciated and will help improve the extension.
+
+## Changelog
+
+### Recent Updates
+- Added filtering and sorting of history entries
+- Implemented non-duplicated display of history entries
+- Displayed earliest and latest access time for the selected date
 
 ## Acknowledgments
 
