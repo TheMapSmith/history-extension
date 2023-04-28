@@ -58,8 +58,16 @@ function filterHistoryEntriesByDate(selectedDate) {
     const promises = results.map(processEntry);
 
     Promise.all(promises).then(() => {
-      // Sort the history items by visitTime (in descending order)
-      processedResults.sort((a, b) => b.visitTime - a.visitTime);
+        // Sort the history items by visitTime (in descending order)
+        processedResults.sort((a, b) => b.visitTime - a.visitTime);
+
+        // Calculate and display the earliest and latest times
+        const earliestTimeElement = document.getElementById('earliest-time');
+        const latestTimeElement = document.getElementById('latest-time');
+        const earliestTime = new Date(processedResults[processedResults.length - 1].visitTime).toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit' });
+        const latestTime = new Date(processedResults[0].visitTime).toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit' });
+        earliestTimeElement.textContent = `Earliest Time: ${earliestTime}`;
+        latestTimeElement.textContent = `Latest Time: ${latestTime}`;
 
       for (const entry of processedResults) {
         const entryElement = document.createElement('div');
