@@ -20,7 +20,7 @@ function filterHistoryEntriesByDate(selectedDate) {
     text: '',
     startTime: startTime,
     endTime: endTime,
-    maxResults: 10000
+    maxResults: 1000
   }, (results) => {
     historyList.innerHTML = '';
 
@@ -33,7 +33,21 @@ function filterHistoryEntriesByDate(selectedDate) {
             if (visit.visitTime >= startTime && visit.visitTime <= endTime) {
               const newEntry = Object.assign({}, entry);
               newEntry.visitTime = visit.visitTime;
-              processedResults.push(newEntry);
+
+              // Format the visited time for display purposes
+              const visitedTime = new Date(newEntry.visitTime);
+              const timeString = visitedTime.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit' });
+              newEntry.displayTime = timeString;
+
+              // Check for duplicates before adding to the processedResults array
+              const duplicate = processedResults.some(existingEntry =>
+                existingEntry.title === newEntry.title &&
+                existingEntry.displayTime === newEntry.displayTime
+              );
+
+              if (!duplicate) {
+                processedResults.push(newEntry);
+              }
             }
           });
           resolve();
@@ -51,13 +65,9 @@ function filterHistoryEntriesByDate(selectedDate) {
         const entryElement = document.createElement('div');
         entryElement.classList.add('entry');
 
-        // Format the visited time for display purposes
-        const visitedTime = new Date(entry.visitTime);
-        const timeString = visitedTime.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit' });
-
         // Create a span element to display the visited time
         const visitedTimeElement = document.createElement('span');
-        visitedTimeElement.textContent = `${timeString} - `;
+        visitedTimeElement.textContent = `${entry.displayTime} - `;
         entryElement.appendChild(visitedTimeElement);
 
         // Create an img element for the favicon
@@ -78,4 +88,3 @@ function filterHistoryEntriesByDate(selectedDate) {
     });
   });
 }
-
