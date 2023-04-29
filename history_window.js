@@ -63,6 +63,9 @@ function processHistoryEntries(results, startTime, endTime) {
       }
     }
 
+    // Sort the processedResults array by visitTime in descending order
+    processedResults.sort((a, b) => b.visitTime - a.visitTime);
+
     resolve(processedResults);
   });
 }
