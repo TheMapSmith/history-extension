@@ -13,6 +13,7 @@ closeButton.addEventListener('click', () => {
 
 function loadHistoryEntries(selectedDate) {
   const selectedDateObj = new Date(selectedDate);
+  selectedDateObj.setMinutes(selectedDateObj.getMinutes() - selectedDateObj.getTimezoneOffset());
   const startTime = selectedDateObj.setHours(0, 0, 0, 0);
   const endTime = selectedDateObj.setHours(23, 59, 59, 999);
 
