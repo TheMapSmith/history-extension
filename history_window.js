@@ -13,10 +13,10 @@ closeButton.addEventListener('click', () => {
 
 function loadHistoryEntries(selectedDate) {
   const selectedDateObj = new Date(selectedDate);
-  const localDateString = selectedDateObj.toLocaleDateString();
-  const localDateObj = new Date(localDateString);
-  const startTime = localDateObj.setHours(0, 0, 0, 0);
-  const endTime = localDateObj.setHours(23, 59, 59, 999);
+
+  const timeZoneOffset = selectedDateObj.getTimezoneOffset() * 60 * 1000;
+  const startTime = selectedDateObj.setHours(0, 0, 0, 0) - timeZoneOffset;
+  const endTime = selectedDateObj.setHours(23, 59, 59, 999) - timeZoneOffset;
 
   searchHistory(startTime, endTime, (results) => {
     processHistoryEntries(results, startTime, endTime).then((processedResults) => {
