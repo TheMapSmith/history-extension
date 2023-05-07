@@ -49,7 +49,8 @@ function processHistoryEntries(results, startTime, endTime) {
 
           // Format the visited time for display purposes
           const visitedTime = new Date(newEntry.visitTime);
-          const timeString = visitedTime.toLocaleTimeString('en-US', { hour12: true, hour: '2-digit', minute: '2-digit' });
+          const formatter = new Intl.DateTimeFormat('en-US', { hour: '2-digit', minute: '2-digit', hour12: true });
+          const timeString = formatter.format(visitedTime);
           newEntry.displayTime = timeString;
 
           // Check for duplicates before adding to the processedResults array
